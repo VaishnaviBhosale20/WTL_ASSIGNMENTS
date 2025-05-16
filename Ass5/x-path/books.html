@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XPath Example</title>
+</head>
+<body>
+
+    <h2>Bookstore XML Data</h2>
+
+    <!-- Embedding XML inside the HTML -->
+    <pre id="xmlData" style="display:none;">
+        &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+        &lt;bookstore&gt;
+            &lt;book category="cooking"&gt;
+                &lt;title lang="en"&gt;Everyday Italian&lt;/title&gt;
+                &lt;author&gt;Giada De Laurentiis&lt;/author&gt;
+                &lt;year&gt;2005&lt;/year&gt;
+                &lt;price&gt;30.00&lt;/price&gt;
+            &lt;/book&gt;
+            &lt;book category="children"&gt;
+                &lt;title lang="en"&gt;Harry Potter&lt;/title&gt;
+                &lt;author&gt;J K. Rowling&lt;/author&gt;
+                &lt;year&gt;2005&lt;/year&gt;
+                &lt;price&gt;29.99&lt;/price&gt;
+            &lt;/book&gt;
+            &lt;book category="web"&gt;
+                &lt;title lang="en"&gt;XQuery Kick Start&lt;/title&gt;
+                &lt;author&gt;James McGovern&lt;/author&gt;
+                &lt;author&gt;Per Bothner&lt;/author&gt;
+                &lt;author&gt;Kurt Cagle&lt;/author&gt;
+                &lt;author&gt;James Linn&lt;/author&gt;
+                &lt;author&gt;Vaidyanathan Nagarajan&lt;/author&gt;
+                &lt;year&gt;2003&lt;/year&gt;
+                &lt;price&gt;49.99&lt;/price&gt;
+            &lt;/book&gt;
+            &lt;book category="web"&gt;
+                &lt;title lang="en"&gt;Learning XML&lt;/title&gt;
+                &lt;author&gt;Erik T. Ray&lt;/author&gt;
+                &lt;year&gt;2003&lt;/year&gt;
+                &lt;price&gt;39.95&lt;/price&gt;
+            &lt;/book&gt;
+        &lt;/bookstore&gt;
+    </pre>
+
+    <script>
+        // Parse the XML data from the hidden <pre> tag
+        const xmlText = document.getElementById("xmlData").textContent;
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlText, "text/xml");
+
+        // Function to execute XPath query
+        function runXPath(query) {
+            const result = xmlDoc.evaluate(query, xmlDoc, null, XPathResult.ANY_TYPE, null);
+            let node = result.iterateNext();
+            let output = [];
+            while (node) {
+                output.push(node.textContent);
+                node = result.iterateNext();
+            }
+            console.log(output);
+        }
+
+        // Run XPath to get all book titles
+        runXPath("/bookstore/book/title");
+    </script>
+
+</body>
+</html>

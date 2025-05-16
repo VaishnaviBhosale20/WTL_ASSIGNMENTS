@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e1ecf7;
+    padding: 20px;
+}
+
+.organization {
+    max-width: 600px;
+    margin: auto;
+    font-style: Times new roman;
+}
+
+.project {
+    border: 7px solid #520b90;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #e9f5ff;
+    margin-bottom: 20px;
+}
+
+.member {
+    padding: 10px;
+    border: 1px solid #dc2424;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: rgb(252, 222, 222);
+}
+
+h3 {
+    color: #333;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

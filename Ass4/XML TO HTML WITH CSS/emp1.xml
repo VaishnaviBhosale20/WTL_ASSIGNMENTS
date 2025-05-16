@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="emp1.xsl"?>
+<!-- xsl:output methos = "text" -->
+<!-- <!DOCTYPE Organization [
+    <!ELEMENT Organization (project+)>
+    <!ELEMENT project (member+)>
+    <!ELEMENT member (name, emp_id , email)>
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT emp_id (#PCDATA)>
+    <!ELEMENT email (#PCDATA)>
+]> -->
+<Organization>
+    <project>   
+        <member>
+            <name> Vaishnavi Bhosale</name>
+            <emp_id>27</emp_id>
+            <email>v3020b@gmail.com</email>
+        </member>
+        <member>
+            <name>sneha jadhav</name>
+            <emp_id>49</emp_id>
+            <email>sneha3027@gmail.com</email>
+        </member>
+        <member>
+            <name>Pulkeet sawant</name>
+            <emp_id>39</emp_id>
+            <email>pulkeet07@gmail.com</email>
+        </member>
+        <member>
+            <name>Pratik Dhage</name>
+            <emp_id>33</emp_id>
+            <email>pratik90@gmail.com</email>
+        </member>
+    </project>
+</Organization>

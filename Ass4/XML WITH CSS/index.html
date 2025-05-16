@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML Display</title>
+    <link rel="stylesheet" href="EMP.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("EMP.xml")
+                .then(response => response.text())
+                .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+                .then(data => {
+                    let output = "<div class='organization'>";
+                    let projects = data.getElementsByTagName("project");
+
+                    for (let project of projects) {
+                        output += "<div class='project'>";
+                        let members = project.getElementsByTagName("member");
+
+                        for (let member of members) {
+                            let name = member.getElementsByTagName("name")[0].textContent;
+                            let emp_id = member.getElementsByTagName("emp_id")[0].textContent;
+                            let email = member.getElementsByTagName("email")[0].textContent;
+
+                            output += `
+                                <div class='member'>
+                                    <h3>${name}</h3>
+                                    <p>ID: ${emp_id}</p>
+                                    <p>Email: <a href="mailto:${email}">${email}</a></p>
+                                </div>
+                            `;
+                        }
+                        output += "</div>";
+                    }
+                    output += "</div>";
+                    document.getElementById("content").innerHTML = output;
+                });
+        });
+    </script>
+</head>
+<body>
+    <h1>Organization Members</h1>
+    <div id="content"></div>
+</body>
+</html>

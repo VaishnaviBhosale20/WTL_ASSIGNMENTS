@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<library>
+    <book>
+        <title>Introduction to Algorithms</title>
+        <author>XYZ</author>
+        <year>2009</year>
+        <price>500</price>
+    </book>
+    <book>
+        <title>Clean Code</title>
+        <author>Robert</author>
+        <year>2008</year>
+        <price>390</price>
+    </book>
+    <book>
+        <title>Wings of fire</title>
+        <author>A.P.J. Kalam</author>
+        <year>1995</year>
+        <price>400</price>
+    </book>
+</library>
